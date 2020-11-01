@@ -2,32 +2,21 @@
 <html lang="en">
   <head>
     <title>Travel2India</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <link rel="stylesheet" href="main.css" />
     <script
       src="https://kit.fontawesome.com/332a215f17.js"
       crossorigin="anonymous"
     ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+  </head>  
+  <script src="main.js"></script>
   <body>
-    <!--Navbar-->
     <nav
       class="navbar navbar-expand-lg navbar-light main-navbar bg m-navbar-light"
       id="main-navbar"
@@ -51,22 +40,22 @@
               <a href="index.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">About</a>
+              <a href="#about" class="nav-link">About</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Popular Places</a>
+              <a href="#places" class="nav-link">Popular Places</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Services</a>
+              <a href="#services" class="nav-link">Services</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Historical Places</a>
+              <a href="#services" class="nav-link">Historical Places</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Blog</a>
+              <a href="#blog" class="nav-link">Blog</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Contact</a>
+              <a href="#contact" class="nav-link">Contact</a>
             </li>
           </ul>
         </div>
@@ -88,7 +77,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
                 veniam non nostrum at laudantium asperiores?
               </p>
-              <a href="#" class="btn btn-hero py-2 px-3"> view all</a>
+              <a href="#" class="btn btn-hero py-2 3px-3"> view all</a>
             </div>
           </div>
         </div>
@@ -96,6 +85,7 @@
     </section>
          <!--End of Hero-Image-->
     <!--Search Section-->
+    
     <section>
       <div class="section-search">
         <div class="container">
@@ -114,26 +104,28 @@
               </div>
             </div>
             <div class="tab-content py-5" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" 
-              aria-labelledby="v-pills-home-tab">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
               <div class="block-17">
-                <form class="d-block d-lg-flex">
+                <form class="d-block d-lg-flex" name="flight" onsubmit="return validate()" method="POST">
                   <div class="fields d-block d-lg-flex">
                     <div class="text-field-search one-third">
-                      <input type="text" class="form-control" placeholder="Search Location">
+                      <input type="text" class="form-control" id="source" placeholder="Flying From">
+                    </div>
+                    <div class="text-field-search one-third">
+                      <input type="text" class="form-control" id="destination" placeholder="Flying To">
                     </div>
                     <div class="check-in one-third">
-                      <input type="text" class="form-control" placeholder="check-in date">
+                      <input type="text" class="form-control" id="going" placeholder="Flying from Date">
                     </div>
                     <div class="check-out one-third">
-                      <input type="text" class="form-control" placeholder="check-out date">
+                      <input type="text" class="form-control" id="coming" placeholder="Flying To Date">
                     </div>
                     <div class="select-wrap one-third">
-                      <select name="" id="" class="form-control">
-                        <option value="">Guest</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3+</option>
+                      <select name="" id="passenger" class="form-control">
+                        <option value="0">Guest</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3+</option>
                       </select>
                     </div>
                   </div>
@@ -145,23 +137,29 @@
               <div class="tab-pane fade show" id="v-pills-profile" role="tabpanel" 
               aria-labelledby="v-pills-profile-tab">
               <div class="block-17">
-                <form class="d-block d-lg-flex">
+                <form class="d-block d-lg-flex" name="hotel" onsubmit="return checkhotel()" method="POST">
                   <div class="fields d-block d-lg-flex">
                     <div class="text-field-search one-third">
-                      <input type="text" class="form-control" placeholder="Search Hotel">
+                      <input type="text" class="form-control" id="city" placeholder="Search city">
                     </div>
                     <div class="check-in one-third">
-                      <input type="text" class="form-control" placeholder="check-in date">
+                      <input type="text" class="form-control" id="checkindate" placeholder="check-in date">
+                    </div>
+                    <div class="check-in one-fifth">
+                      <input type="text" class="form-control" id="checkintime" placeholder="check-in Time">
                     </div>
                     <div class="check-out one-third">
-                      <input type="text" class="form-control" placeholder="check-out date">
+                      <input type="text" class="form-control" id="checkoutdate" placeholder="check-out date">
+                    </div>
+                    <div class="check-in one-third">
+                      <input type="text" class="form-control"  id="checkouttime" placeholder="check-Out Time">
                     </div>
                     <div class="select-wrap one-third">
-                      <select name="" id="" class="form-control">
-                        <option value="">Guest</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3+</option>
+                      <select name="" id="guest" class="form-control">
+                        <option value="0">Guest</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3+</option>
                       </select>
                     </div>
                   </div>
@@ -173,19 +171,22 @@
               <div class="tab-pane fade show" id="v-pills-messages" role="tabpanel" 
               aria-labelledby="v-pills-messages-tab">
               <div class="block-17">
-                <form class="d-block d-lg-flex">
+                <form class="d-block d-lg-flex" name="carrent" onsubmit="return checkcar()" method="POST">
                   <div class="fields d-block d-lg-flex">
                     <div class="text-field-search one-third">
-                      <input type="text" class="form-control" placeholder="Search Location">
+                      <input type="text" class="form-control" id="city" placeholder="Search city">
                     </div>
                     <div class="check-in one-third">
-                      <input type="text" class="form-control" placeholder="start date">
+                      <input type="text" class="form-control" id="startdate" placeholder="start date">
                     </div>
                     <div class="check-out one-third">
-                      <input type="text" class="form-control" placeholder="return date">
+                      <input type="text" class="form-control" id="starttime" placeholder="start time">
+                    </div>
+                    <div class="check-out one-third">
+                      <input type="text" class="form-control" id="endtime" placeholder="end time">
                     </div>
                     <div class="select-wrap one-third">
-                      <select name="" id="" class="form-control">
+                      <select name="" id="guest" class="form-control">
                         <option value="">Guest</option>
                         <option value="">1</option>
                         <option value="">2</option>
@@ -206,7 +207,7 @@
     </section>
     <!--End of Search Section-->
     <!--Welcome/About Section-->
-    <section class="about section mt-5">
+    <section class="about section mt-5" id="about">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center heading-section mb-5">
@@ -279,6 +280,7 @@
     </section>
     <!--End of Welcome/About Section-->
     <!--Popular Places-->
+
     <section>
       <div class="popular section-bg img-effect mt-5">
         <div class="container">
@@ -567,7 +569,7 @@
     <!--End of Package Section-->
     <!--Historical Places Section-->
     <section class="mt-2">
-      <div class="historical-places">
+      <div class="historical-places" id="places">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -837,7 +839,7 @@
     </section>
     <!--End of Customers Section-->
     <!--Blog Section-->
-    <section class="blog-section">
+    <section class="blog-section" id="blog">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -893,7 +895,7 @@
     </section>
     <!--End of Blog Section-->
     <!--Contact Section-->
-    <section class="contact mt-3">
+    <section class="contact mt-3" id="contact">
       <div class="container">
         <div class="section-title">
           <h2 class="text-center">
@@ -1041,26 +1043,8 @@
       </div>
     </footer>
 
-    <!--End of Instagram Part Section-->
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
