@@ -225,4 +225,75 @@ function validate() {
           return true;
         }
       }
+      function checkdetails() {
+        var name = document.contactcard.name;
+        var email = document.contactcard.email;
+        var subject = document.contactcard.subject;
+        var message = document.contactcard.message;
+        var contact = document.contactcard.contact; 
+        var country = document.contactcard.country;
+        var patt = /[a-zA-Z]{2,}[ ][a-zA-Z]{2,}/;
+        var patt_email = /[a-zA-Z0-9]{2,}[@][a-zA-Z]{2,}[.][a-zA-Z]{2,}/;
+        var patt_contact = /[+][0-9]{2}[-][0-9]{4}[-][0-9]{3}[-][0-9]{3}/;
+        var patt_country = /[A-Z]{1}[a-z]{2,}/;
+        if (name.value=="" || !patt.test(name.value)) {
+            if (name.value=="") {
+              alert("Name is required");
+              name.style.border = "3px solid red";
+              return false;
+            } else {
+              alert("wrong Name format \n sample format - John Doe");
+              name.style.border = "3px solid red";
+              return false;
+            }
+          } 
+          if (email.value=="" || !patt_email.test(email.value)) {
+            if (email.value=="") {
+              alert("email is required");
+              email.style.border = "3px solid red";
+              return false;
+            } else {
+              alert("wrong email format \n sample format - John Doe");
+              email.style.border = "3px solid red";
+              return false;
+            }
+          } 
+          if (contact.value=="" || !patt_contact.test(contact.value)) {
+            if (contact.value=="") {
+              alert("contact is required");
+              contact.style.border = "3px solid red";
+              return false;
+            } else {
+              alert("Wrong contact format\n Sample format- +XX-XXXX-XXX-XXX");
+              contact.style.border = "3px solid red";
+              return false;
+            }
+          }
+          if (country.value=="" || !patt_country.test(country)) {
+            if (country.value=="") {
+              alert("country is required");
+              country.style.border = "3px solid red";
+              return false;
+            } else {
+              alert("Wrong country format\n Sample format- India");
+              country.style.border = "3px solid red";
+              return false;
+            }
+          }
+          if (subject.value=="") {
+            alert("subject is required");
+            subject.style.border= "3px solid red"
+            return false;
+          }
+          if (message.value=="") {
+            alert("message is required");
+            message.style.border= "3px solid red"
+            return false;
+          }
+            
+        else {
+          alert("Details submitted successfully")
+          return true;
+        }
+      }
     
