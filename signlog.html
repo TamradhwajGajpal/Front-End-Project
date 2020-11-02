@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignUp and Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<script>
+	function valid() {
+		var name = document.signup.name;
+		var email = document.signup.email;
+		var contact = document.signup.contact;
+		var password = document.signup.password;
+		var cpassword = document.signup.cpassword;
+		if (name.value=="" && email.value=="" &&  contact.value=="" &&  password.value=="" && cpassword.value=="") {
+			alert("Fill details");
+			name.style.border = "3px solid red";
+			email.style.border = "3px solid red";
+			contact.style.border = "3px solid red";
+			password.style.border = "3px solid red";
+			cpassword.style.border = "3px solid red";
+			return false;
+		}
+		if (name.value=="") {
+			alert("Name is required");
+			name.style.border="3px solid red";
+			return false;
+		} 
+		if (email.value=="") {
+			alert("E-mail is required");
+			email.style.border="3px solid red";
+			return false;
+		} 
+		if (contact.value=="" || contact.value.length!=10) {
+			if (contact.value=="") {
+				alert("contact is required");
+				return false;
+			} else {
+				alert("Invalid contact number\n Sample xxxxxxxxxx");
+				return false;
+			}		
+			contact.style.border="3px solid red";
+			return false;
+		} 
+		if (password.value=="") {
+			alert("Password is required");
+			password.style.border="3px solid red";
+			return false;
+		}
+		if (cpassword.value=="") {
+			alert("Confirm Password is required");
+			cpassword.style.border="3px solid red";
+			return false;
+		}
+		if ( password.value != cpassword.value ) {
+			alert("Password mismatch error.");
+			password.style.border="3px solid red";
+			cpassword.style.border="3px solid red";
+			return false;
+		}
+		
+		else {
+			alert("Account created successfully");
+			return true;
+		}
+	}
+	function validate(){
+		var name = document.login.name;
+		var email = document.login.email;
+		var password = document.login.password;
+		var cpassword = document.login.cpassword;
+		if (name.value=="" && email.value=="" &&   password.value=="" && cpassword.value=="") {
+			alert("Fill details");
+			name.style.border = "3px solid red";
+			email.style.border = "3px solid red";
+			password.style.border = "3px solid red";
+			cpassword.style.border = "3px solid red";
+			return false;
+		}
+		if (name.value=="") {
+			alert("Name is required");
+			name.style.border="3px solid red";
+			return false;
+		} 
+		if (email.value=="") {
+			alert("E-mail is required");
+			email.style.border="3px solid red";
+			return false;
+		} 
+		 
+		if (password.value=="") {
+			alert("Password is required");
+			password.style.border="3px solid red";
+			return false;
+		}
+		if (cpassword.value=="") {
+			alert("Confirm Password is required");
+			cpassword.style.border="3px solid red";
+			return false;
+		}
+		if ( password.value != cpassword.value ) {
+			alert("Password mismatch error.");
+			password.style.border="3px solid red";
+			cpassword.style.border="3px solid red";
+			return false;
+		} 
+		else {
+			alert("Account created successfully");
+			return true;
+		}
+	}
+</script>
+<body>
+
+<div class="container" id="container">
+<div class="form-container sign-up-container">
+
+<form name="signup" onsubmit="return valid()" method="POST" action="index.html" >
+	<h1>Create Account</h1>
+	<div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your email for registration</span>
+	<input type="text" name="name" id="name" placeholder="Name">
+	<input type="text" name="Contact" id="contact" placeholder="Contact No.">
+	<input type="email" name="email" id="email" placeholder="Email">
+	<input type="password" name="password" id="password" placeholder="Password">
+	<input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password">
+	<button>SignUp</button>
+</form>
+</div>
+<div class="form-container sign-in-container">
+	<form name="login" method="POST" onsubmit="return validate()" action="index.html">
+		<h1>Sign In</h1>
+		<div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your account</span>
+	<input type="name" name="name" id="name" placeholder="Name">
+	<input type="email" name="email" id="email" placeholder="Email">
+	<input type="password" name="password" id="password" placeholder="Password">
+	<input type="password" name="password" id="cpassword" placeholder="Re-type Password">
+	<a href="#">Forgot Your Password</a>
+
+	<button>Sign In</button>
+	</form>
+</div>
+<div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-left">
+			<h1>Welcome Back!</h1>
+			<p>To keep connected with us please login with your personal info</p>
+			<button class="ghost" id="signIn">Sign In</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+			<h1>Hello, Friend!</h1>
+			<p>Enter your details and start journey with us</p>
+			<button class="ghost" id="signUp">Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
