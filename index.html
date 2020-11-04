@@ -50,7 +50,7 @@
               <a href="index.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#about" class="nav-link">About</a>
+              <a href="#ab" class="nav-link">About</a>
             </li>
             <li class="nav-item">
               <a href="#places" class="nav-link">Popular Places</a>
@@ -65,7 +65,7 @@
               <a href="#blog" class="nav-link">Locations</a>
             </li>
             <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
+              <a href="#us" class="nav-link">Contact</a>
             </li>
             <li class="nav-item">
               <a href="signlog.html" class="nav-link">Create account</a>
@@ -223,7 +223,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center heading-section mb-5">
-            <h2 class="text-black mb-2">Welcome to Travel2India</h2>
+            <h2 class="text-black mb-2" id="ab">Welcome to Travel2India</h2>
             <p>We welcome you to our Travel & Tourism Website. We provide all-in-one effort for our customers by providing
               cultural, Natural and Historical Tourism to our customers.</p>
           </div>
@@ -913,7 +913,7 @@ Red fort and Jantar mantar, these are also few most visited Heritage Sites in In
     <section class="contact mt-3">
       <div class="container">
         <div class="section-title">
-          <h2 class="text-center">
+          <h2 class="text-center" id="us">
             Contact Us
           </h2>
           <p class="text-center">
@@ -1040,8 +1040,8 @@ Red fort and Jantar mantar, these are also few most visited Heritage Sites in In
               <h4>Join Our News Letter</h4>
               <p>To receive our mail of discounted offers
                  for you at the time of offer you can subscribe to our news letter!</p>
-              <form action="">
-                <input type="email" name="email">
+              <form name="my" onsubmit="return sub()" method="POST" action="">
+                <input type="email" id="email" name="email">
                 <input type="submit" value="Subscribe">
               </form>
             </div>
@@ -1065,6 +1065,19 @@ Red fort and Jantar mantar, these are also few most visited Heritage Sites in In
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      function sub() {
+        var email=document.my.email;
+        if (email.value=="") {
+          alert("email is required");
+          email.style.border="3px solid red";
+          return false;
+        } else {
+          alert("you are subscribed to Travel2India");
+          return true;
+        }
+      }
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
